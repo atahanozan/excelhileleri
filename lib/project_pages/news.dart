@@ -2,7 +2,6 @@ import 'package:excel_hileleri_mobil/core/appbar_page.dart';
 import 'package:excel_hileleri_mobil/news_pages/new2.dart';
 import 'package:excel_hileleri_mobil/news_pages/new3.dart';
 import 'package:excel_hileleri_mobil/project_pages/Languages/news.dart';
-import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../news_pages/new1.dart';
@@ -21,7 +20,6 @@ class NewsPages extends StatelessWidget {
             child: Column(children: [
               Column(
                 children: [
-                  const GoogleAdsDenemeSon(),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: _listtileThis(

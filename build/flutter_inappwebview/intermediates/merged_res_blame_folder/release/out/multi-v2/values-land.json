@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Tremglobal78\\Desktop\\ozan_projeler\\excel_hileleri_mobil\\build\\flutter_inappwebview\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-land\\values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Tremglobal78\\.gradle\\caches\\transforms-3\\65fc5fc99760a5db8417f3b78a03e21a\\transformed\\appcompat-1.5.1\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Tremglobal78\\Desktop\\ozan_projeler\\excel_hileleri_mobil\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\values-land\\values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Tremglobal78\\.gradle\\caches\\transforms-3\\65fc5fc99760a5db8417f3b78a03e21a\\transformed\\appcompat-1.5.1\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                }
+            ]
+        }
+    ]
+}

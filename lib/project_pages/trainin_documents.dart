@@ -17,7 +17,6 @@ import 'package:excel_hileleri_mobil/classes_part1/class6.dart';
 import 'package:excel_hileleri_mobil/classes_part1/class7.dart';
 import 'package:excel_hileleri_mobil/classes_part1/class8.dart';
 import 'package:excel_hileleri_mobil/classes_part1/class9.dart';
-import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,7 +42,6 @@ class _TrainingDocumentsState extends State<TrainingDocuments> {
         child: Center(
           child: Column(
             children: [
-              const GoogleAdsDenemeSon(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 child: Text(
@@ -127,7 +125,6 @@ class _TrainingDocumentsState extends State<TrainingDocuments> {
                   ),
                 ],
               ),
-              const GoogleAdsDenemeSon(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -176,7 +173,6 @@ class _TrainingDocumentsState extends State<TrainingDocuments> {
                   ),
                 ],
               ),
-              const GoogleAdsDenemeSon(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

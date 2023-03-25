@@ -1,4 +1,3 @@
-import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -367,7 +366,6 @@ class _TranslatePageState extends State<TranslatePage> {
       body: Center(
         child: ListView(
           children: [
-            const GoogleAdsDenemeSon(),
             SizedBox(
               height: 800,
               child: ListView.builder(

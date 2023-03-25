@@ -2,7 +2,6 @@ import 'package:excel_hileleri_mobil/classes_part1/youtube_class_1.dart';
 import 'package:excel_hileleri_mobil/classes_part1/youtube_class_2.dart';
 import 'package:excel_hileleri_mobil/classes_part1/youtube_class_3.dart';
 import 'package:excel_hileleri_mobil/core/appbar_page.dart';
-import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,7 +25,6 @@ class _VideoGalleryState extends State<VideoGallery> {
         child: Center(
           child: Column(
             children: [
-              const GoogleAdsDenemeSon(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 child: Text(
@@ -61,7 +59,6 @@ class _VideoGalleryState extends State<VideoGallery> {
                   ),
                 ],
               ),
-              const GoogleAdsDenemeSon(),
             ],
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:excel_hileleri_mobil/core/appbar_page.dart';
 import 'package:excel_hileleri_mobil/core/socialmedia.dart';
 import 'package:excel_hileleri_mobil/project_pages/Languages/laguages.dart';
-import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +22,6 @@ class _ContactInfoState extends State<ContactInfo> {
         padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
         child: ListView(
           children: [
-            const GoogleAdsDenemeSon(),
             Center(
               child: Image.asset("assets/contactusnew.png"),
             ),
@@ -34,7 +32,6 @@ class _ContactInfoState extends State<ContactInfo> {
                 style: GoogleFonts.raleway(fontSize: 16),
               ),
             ),
-            const GoogleAdsDenemeSon(),
             const SocialMeadiaChannels(),
           ],
         ),
