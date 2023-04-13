@@ -1,4 +1,4 @@
-com.example.excel_hileleri_mobil
+com.my.excel.hileleri
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -340,6 +340,7 @@ attr windowNoTitle
 bool abc_action_bar_embed_tabs
 bool abc_config_actionMenuItemAllCaps
 bool enable_system_alarm_service_default
+bool enable_system_foreground_service_default
 bool enable_system_job_service_default
 bool workmanager_test_configuration
 color abc_background_cache_hint_selector_material_dark
@@ -955,7 +956,6 @@ string default_web_client_id
 string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
-string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id

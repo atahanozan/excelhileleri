@@ -4,6 +4,7 @@ import 'package:excel_hileleri_mobil/core/drawer_page.dart';
 import 'package:excel_hileleri_mobil/core/mostlikeclass.dart';
 import 'package:excel_hileleri_mobil/core/new_home.dart';
 import 'package:excel_hileleri_mobil/core/topbar.dart';
+import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:excel_hileleri_mobil/project_pages/trainin_documents.dart';
 import 'package:excel_hileleri_mobil/project_pages/translate.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class _HomePageState extends State<HomePage> {
           child: Center(
             child: ListView(
               children: [
+                const GoogleAdsDenemeSon(),
                 const TopBar(),
                 const _robotButton(),
                 Padding(
@@ -41,6 +43,7 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.symmetric(vertical: 15),
                         child: MostLikeClass(),
                       ),
+                      const GoogleAdsDenemeSon(),
                       const _robotButtonBottom(),
                       Image.asset("assets/ders1.png"),
                       const Divider(),
@@ -54,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w600),
                         ),
                       ),
+                      const GoogleAdsDenemeSon(),
                       const NewsPage(),
                       Image.asset("assets/yellowoffice.png"),
                     ],

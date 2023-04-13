@@ -4,14 +4,14 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.excel_hileleri_mobil",
+  "applicationId": "com.my.excel.hileleri",
   "variantName": "debug",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
+      "versionCode": 5,
       "versionName": "1.0.0",
       "outputFile": "AndroidManifest.xml"
     }

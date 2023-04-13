@@ -1,3 +1,4 @@
+import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -372,16 +373,18 @@ class _TranslatePageState extends State<TranslatePage> {
                 itemCount: lastWords.length,
                 itemBuilder: (context, index) {
                   var result = lastWords[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: ListTile(
-                      leading: const Icon(Icons.pageview_rounded),
-                      title: Text(
-                        result,
-                        style: GoogleFonts.raleway(),
-                      ),
-                    ),
-                  );
+                  return index == 5
+                      ? const GoogleAdsDenemeSon()
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: ListTile(
+                            leading: const Icon(Icons.pageview_rounded),
+                            title: Text(
+                              result,
+                              style: GoogleFonts.raleway(),
+                            ),
+                          ),
+                        );
                 },
               ),
             ),

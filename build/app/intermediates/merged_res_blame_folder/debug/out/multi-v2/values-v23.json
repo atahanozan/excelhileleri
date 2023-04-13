@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Tremglobal78\\Desktop\\ozan_projeler\\excel_hileleri_mobil\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Tremglobal78\\.gradle\\caches\\transforms-3\\d84492d15decac242d7b737dca473fee\\transformed\\work-runtime-2.1.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Tremglobal78\\.gradle\\caches\\transforms-3\\dd35ba93460d768b122eeb5d721b15d4\\transformed\\work-runtime-2.7.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Tremglobal78\\.gradle\\caches\\transforms-3\\eb430d2ed3cd09eb5ba32ca89355e03c\\transformed\\appcompat-1.5.1\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Tremglobal78\\.gradle\\caches\\transforms-3\\65fc5fc99760a5db8417f3b78a03e21a\\transformed\\appcompat-1.5.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",

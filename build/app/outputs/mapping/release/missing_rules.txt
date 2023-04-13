@@ -1,0 +1,10 @@
+# Please add these rules to your existing keep rules in order to suppress warnings.
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn com.google.android.gms.ads.InterstitialAd
+-dontwarn com.google.android.gms.ads.doubleclick.AppEventListener
+-dontwarn com.google.android.gms.ads.doubleclick.PublisherAdRequest$Builder
+-dontwarn com.google.android.gms.ads.doubleclick.PublisherAdRequest
+-dontwarn com.google.android.gms.ads.doubleclick.PublisherAdView
+-dontwarn com.google.android.gms.ads.doubleclick.PublisherInterstitialAd
+-dontwarn com.google.android.gms.ads.formats.UnifiedNativeAdView
+-dontwarn com.google.android.gms.ads.rewarded.RewardedAdCallback

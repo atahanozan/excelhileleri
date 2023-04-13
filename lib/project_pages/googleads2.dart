@@ -18,7 +18,7 @@ class _GoogleAdsDenemeSonState extends State<GoogleAdsDenemeSon> {
 
   void loadStaticBannerAd() {
     staticAd = BannerAd(
-        adUnitId: BannerAd.testAdUnitId,
+        adUnitId: "ca-app-pub-1093035981349732/5424775007",
         size: AdSize.banner,
         request: request,
         listener: AdListener(

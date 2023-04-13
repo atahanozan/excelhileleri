@@ -1,4 +1,5 @@
 import 'package:excel_hileleri_mobil/core/appbar_page.dart';
+import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:excel_hileleri_mobil/project_pages/races.dart';
 import 'package:excel_hileleri_mobil/project_pages/trainin_documents.dart';
 import 'package:excel_hileleri_mobil/project_pages/videogallery.dart';
@@ -18,6 +19,7 @@ class MyTrainingPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Center(
           child: Column(children: [
+            const GoogleAdsDenemeSon(),
             Expanded(
                 child: Card(
               color: Colors.amber.shade50,

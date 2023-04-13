@@ -2,6 +2,7 @@ import 'package:excel_hileleri_mobil/core/appbar_page.dart';
 import 'package:excel_hileleri_mobil/core/color_contrast.dart';
 import 'package:excel_hileleri_mobil/project_pages/Languages/laguages.dart';
 import 'package:excel_hileleri_mobil/project_pages/contact_info.dart';
+import 'package:excel_hileleri_mobil/project_pages/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,6 +21,7 @@ class _AboutUssSectionState extends State<AboutUssSection> {
         textappbar: "Hakkımızda",
       ),
       body: ListView(children: [
+        const GoogleAdsDenemeSon(),
         Padding(
           padding: const EdgeInsets.all(15),
           child: Column(

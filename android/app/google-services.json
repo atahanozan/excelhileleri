@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "706468416477",
-    "firebase_url": "https://ehmobile-1a229-default-rtdb.firebaseio.com",
-    "project_id": "ehmobile-1a229",
-    "storage_bucket": "ehmobile-1a229.appspot.com"
+    "project_number": "235411455375",
+    "project_id": "ehmobile-d464c",
+    "storage_bucket": "ehmobile-d464c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:706468416477:android:c260975745328d1c5f4434",
+        "mobilesdk_app_id": "1:235411455375:android:8f28a44c00687914d29ffa",
         "android_client_info": {
           "package_name": "com.my.excel.hileleri"
         }
       },
       "oauth_client": [
         {
-          "client_id": "706468416477-etgplgfmh468kqr179rpv3lopm11veli.apps.googleusercontent.com",
+          "client_id": "235411455375-0ut78vqgdqhjd7u8tqtmgh39bqcda91q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDNUOpbilVxAwL6ZdZGbY0eqjcfCvMAJ8o"
+          "current_key": "AIzaSyCPBCIQNrihKRv2NJC-9uXYmi8zeor1m2I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "706468416477-etgplgfmh468kqr179rpv3lopm11veli.apps.googleusercontent.com",
+              "client_id": "235411455375-0ut78vqgdqhjd7u8tqtmgh39bqcda91q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

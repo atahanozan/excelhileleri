@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.example.excel_hileleri_mobil",
+  "applicationId": "com.my.excel.hileleri",
   "variantName": "debug",
   "elements": []
 }
