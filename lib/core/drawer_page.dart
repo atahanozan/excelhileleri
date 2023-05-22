@@ -1,17 +1,17 @@
 import 'package:excel_hileleri_mobil/core/list_tile.dart';
-import 'package:excel_hileleri_mobil/project_pages/Languages/laguages.dart';
-import 'package:excel_hileleri_mobil/project_pages/about_us.dart';
-import 'package:excel_hileleri_mobil/project_pages/gallery.dart';
-import 'package:excel_hileleri_mobil/project_pages/my_training.dart';
-import 'package:excel_hileleri_mobil/project_pages/news.dart';
-import 'package:excel_hileleri_mobil/project_pages/profile.dart';
-import 'package:excel_hileleri_mobil/project_pages/races.dart';
-import 'package:excel_hileleri_mobil/project_pages/translate.dart';
+import 'package:excel_hileleri_mobil/ui/helper/laguages.dart';
+import 'package:excel_hileleri_mobil/pages/about_us.dart';
+import 'package:excel_hileleri_mobil/pages/gallery.dart';
+import 'package:excel_hileleri_mobil/pages/my_training.dart';
+import 'package:excel_hileleri_mobil/pages/news.dart';
+import 'package:excel_hileleri_mobil/pages/profile.dart';
+import 'package:excel_hileleri_mobil/pages/races.dart';
+import 'package:excel_hileleri_mobil/pages/translate.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../project_pages/contact_info.dart';
-import '../project_pages/home_page.dart';
+import '../pages/contact_info.dart';
+import '../pages/home_page.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);

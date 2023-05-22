@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../project_pages/about_us.dart';
-import '../project_pages/contact_info.dart';
-import '../project_pages/my_training.dart';
-import '../project_pages/translate.dart';
+import '../pages/about_us.dart';
+import '../pages/contact_info.dart';
+import '../pages/my_training.dart';
+import '../pages/translate.dart';
 
 class BottomMenu extends StatefulWidget {
   const BottomMenu({Key? key}) : super(key: key);

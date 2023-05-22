@@ -43,6 +43,9 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^20.4.38
   youtube_player_flutter: ^8.1.2
   firebase_core: ^2.4.1
+  firebase_auth: ^4.4.1
+  firebase_storage: ^11.1.0
+  cloud_firestore: ^4.5.1
 
 dev_dependencies:
   flutter_test:

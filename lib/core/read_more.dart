@@ -1,4 +1,4 @@
-import 'package:excel_hileleri_mobil/project_pages/Languages/laguages.dart';
+import 'package:excel_hileleri_mobil/ui/helper/laguages.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:readmore/readmore.dart';

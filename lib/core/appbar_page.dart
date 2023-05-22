@@ -23,7 +23,7 @@ class _AppbarPageState extends State<AppbarPage> {
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
       titleTextStyle: GoogleFonts.raleway(fontSize: 20, color: Colors.black),
-      title: Text(widget().textappbar),
+      title: Text(widget.textappbar),
       centerTitle: true,
       actions: [
         IconButton(

@@ -1,8 +1,8 @@
-import 'package:excel_hileleri_mobil/project_pages/contact_info.dart';
-import 'package:excel_hileleri_mobil/project_pages/my_training.dart';
-import 'package:excel_hileleri_mobil/project_pages/news.dart';
-import 'package:excel_hileleri_mobil/project_pages/races.dart';
-import 'package:excel_hileleri_mobil/project_pages/translate.dart';
+import 'package:excel_hileleri_mobil/pages/contact_info.dart';
+import 'package:excel_hileleri_mobil/pages/my_training.dart';
+import 'package:excel_hileleri_mobil/pages/news.dart';
+import 'package:excel_hileleri_mobil/pages/races.dart';
+import 'package:excel_hileleri_mobil/pages/translate.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
