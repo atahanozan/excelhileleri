@@ -1,6 +1,5 @@
-import 'package:excel_hileleri_mobil/core/appbar_page.dart';
-import 'package:excel_hileleri_mobil/core/color_contrast.dart';
-import 'package:excel_hileleri_mobil/core/socialmedia.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/appbar_page.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/socialmedia.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -30,7 +29,7 @@ class _CokEgerSayVidClassState extends State<CokEgerSayVidClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarPage(textappbar: ""),
+      appBar: AppbarPage(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),
@@ -54,9 +53,8 @@ class _CokEgerSayVidClassState extends State<CokEgerSayVidClass> {
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 15),
-                child: TextColorContrast(
-                  textone: "ÇOK EĞER SAY FORMÜLÜ VİDEOLU ANLATIM",
-                  size: 20,
+                child: Text(
+                  "ÇOK EĞER SAY FORMÜLÜ VİDEOLU ANLATIM",
                 ),
               ),
               Padding(

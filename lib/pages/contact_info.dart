@@ -1,7 +1,6 @@
-import 'package:excel_hileleri_mobil/core/appbar_page.dart';
-import 'package:excel_hileleri_mobil/core/socialmedia.dart';
-import 'package:excel_hileleri_mobil/ui/helper/laguages.dart';
-import 'package:excel_hileleri_mobil/pages/googleads2.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/appbar_page.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/socialmedia.dart';
+import 'package:excel_hileleri_mobil/services/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,9 +15,7 @@ class _ContactInfoState extends State<ContactInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarPage(
-        textappbar: "",
-      ),
+      appBar: AppbarPage(),
       body: Padding(
         padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
         child: ListView(
@@ -30,7 +27,7 @@ class _ContactInfoState extends State<ContactInfo> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Text(
-                textUtilities.contactusmain,
+                "textUtilities.contactusmain",
                 style: GoogleFonts.raleway(fontSize: 16),
               ),
             ),

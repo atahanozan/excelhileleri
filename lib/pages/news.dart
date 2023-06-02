@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:excel_hileleri_mobil/core/appbar_page.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/appbar_page.dart';
 import 'package:flutter/material.dart';
 
 class NewsPages extends StatefulWidget {
@@ -13,7 +13,7 @@ class _NewsPagesState extends State<NewsPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppbarPage(textappbar: "Blog Yazıları"),
+        appBar: AppbarPage(),
         body: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection('blogs')

@@ -17,11 +17,11 @@ import 'package:excel_hileleri_mobil/classes_part1/class6.dart';
 import 'package:excel_hileleri_mobil/classes_part1/class7.dart';
 import 'package:excel_hileleri_mobil/classes_part1/class8.dart';
 import 'package:excel_hileleri_mobil/classes_part1/class9.dart';
-import 'package:excel_hileleri_mobil/pages/googleads2.dart';
+import 'package:excel_hileleri_mobil/services/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../core/appbar_page.dart';
+import '../ui/widgets/appbar_page.dart';
 
 class TrainingDocuments extends StatefulWidget {
   const TrainingDocuments({Key? key}) : super(key: key);
@@ -34,9 +34,7 @@ class _TrainingDocumentsState extends State<TrainingDocuments> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarPage(
-        textappbar: "",
-      ),
+      appBar: AppbarPage(),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(15),

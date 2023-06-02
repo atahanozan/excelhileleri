@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-import '../core/appbar_page.dart';
+import '../ui/widgets/appbar_page.dart';
 
 class ClassFifteenPage extends StatelessWidget {
   const ClassFifteenPage({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class ClassFifteenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarPage(textappbar: ""),
+      appBar: AppbarPage(),
       body: SfPdfViewer.asset("assets/15_ders.pdf"),
     );
   }

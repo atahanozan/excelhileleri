@@ -1,8 +1,6 @@
-import 'package:excel_hileleri_mobil/core/appbar_page.dart';
-import 'package:excel_hileleri_mobil/core/color_contrast.dart';
-import 'package:excel_hileleri_mobil/ui/helper/laguages.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/appbar_page.dart';
 import 'package:excel_hileleri_mobil/pages/contact_info.dart';
-import 'package:excel_hileleri_mobil/pages/googleads2.dart';
+import 'package:excel_hileleri_mobil/services/googleads2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,9 +15,7 @@ class _AboutUssSectionState extends State<AboutUssSection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarPage(
-        textappbar: "Hakkımızda",
-      ),
+      appBar: AppbarPage(),
       body: ListView(children: [
         const GoogleAdsDenemeSon(),
         Padding(
@@ -30,13 +26,10 @@ class _AboutUssSectionState extends State<AboutUssSection> {
               children: [
                 Container(
                   width: 280,
-                  child: const TextColorContrast(
-                    textone: "Excel Hileleri",
-                    size: 80,
-                  ),
+                  child: Text(""),
                 ),
                 Text(
-                  textUtilities.ehAboutUs,
+                  "textUtilities.ehAboutUs",
                   style: GoogleFonts.raleway(fontSize: 16),
                 ),
                 Center(
@@ -50,11 +43,11 @@ class _AboutUssSectionState extends State<AboutUssSection> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              textUtilities.nameAot,
+                              "textUtilities.nameAot",
                               style: GoogleFonts.raleway(
                                   fontSize: 18, color: Colors.white70),
                             ),
-                            Text(textUtilities.jobAot,
+                            Text("textUtilities.jobAot",
                                 style:
                                     GoogleFonts.raleway(color: Colors.white70)),
                             TextButton(

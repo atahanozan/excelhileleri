@@ -1,8 +1,5 @@
-
-import 'package:excel_hileleri_mobil/core/appbar_page.dart';
-import 'package:excel_hileleri_mobil/core/color_contrast.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/adsappbar.dart';
 import 'package:flutter/material.dart';
-import 'googleads2.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -15,21 +12,20 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarPage(textappbar: "Profil"),
+      extendBodyBehindAppBar: true,
+      appBar: const AdsAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Center(
-          child: Column(children: [
-            const GoogleAdsDenemeSon(),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
             Expanded(child: Image.asset("assets/comingsoon.png")),
             const Expanded(
               child: FittedBox(
                 fit: BoxFit.contain,
-                child: TextColorContrast(
-                    textone: "Yakında \nHizmetinizdeyiz...", size: 50),
+                child: Text("data"),
               ),
             ),
-          ]),
+          ],
         ),
       ),
     );
