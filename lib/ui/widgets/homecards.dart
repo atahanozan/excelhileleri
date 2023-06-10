@@ -1,3 +1,4 @@
+import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -30,9 +31,11 @@ class _HomePageCardsState extends State<HomePageCards> {
       child: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: const Color(0xffD1E4DA),
-        ),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.transparent,
+            border: Border.all(
+              color: CustomColors.lightGreen,
+            )),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -40,6 +43,10 @@ class _HomePageCardsState extends State<HomePageCards> {
           children: [
             Container(
               alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color(0xffD1E4DA),
+              ),
               height: 120,
               child: Image.asset(widget.image),
             ),

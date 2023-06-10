@@ -8,6 +8,7 @@ class CustomTextStyle {
 
   static TextStyle mediumHeader = GoogleFonts.abrilFatface(
     fontSize: 19,
+    color: Colors.black,
   );
 
   static TextStyle largeHeader = GoogleFonts.limelight(

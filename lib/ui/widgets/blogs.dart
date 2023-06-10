@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel_hileleri_mobil/pages/blogdetailpage.dart';
+import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BlogsPage extends StatefulWidget {
   const BlogsPage({super.key});
@@ -17,15 +19,29 @@ class _BlogsPageState extends State<BlogsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Blog Yazıları",
-          style: CustomTextStyle.largeHeader,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Blog Yazıları",
+              style: GoogleFonts.raleway(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "/allblogs");
+              },
+              child: const Text(
+                "Tümünü gör",
+                style: TextStyle(color: CustomColors.lightRed),
+              ),
+            ),
+          ],
         ),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: const Color(0xffF92809)),
           width: MediaQuery.of(context).size.width,
           height: 200,
           child: StreamBuilder(
@@ -35,7 +51,10 @@ class _BlogsPageState extends State<BlogsPage> {
                 .snapshots(),
             builder: (context, snapshot) {
               return !snapshot.hasData
-                  ? const CircularProgressIndicator()
+                  ? Text(
+                      "Yükleniyor...",
+                      style: CustomTextStyle.bodyText,
+                    )
                   : ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.data?.docs.length,
@@ -60,7 +79,7 @@ class _BlogsPageState extends State<BlogsPage> {
                               width: 100,
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                color: const Color(0xffFFE7C6),
+                                color: CustomColors.darkRed,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Column(
@@ -80,7 +99,10 @@ class _BlogsPageState extends State<BlogsPage> {
                                         child: Text(
                                           title.replaceAll(" ", "\n"),
                                           softWrap: true,
-                                          style: CustomTextStyle.mediumHeader,
+                                          style: GoogleFonts.raleway(
+                                            fontSize: 20,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),

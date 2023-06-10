@@ -1,6 +1,6 @@
+import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMeadiaChannels extends StatefulWidget {
@@ -18,78 +18,121 @@ class _SocialMeadiaChannelsState extends State<SocialMeadiaChannels> {
       child: Column(
         children: [
           const Divider(),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              "Aşağıdaki kanallardan bizimle iletişime geçebilirsiniz.",
-              style: CustomTextStyle.bodyText,
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: CustomColors.lightYellow,
             ),
-          ),
-          const Card(
             child: ListTile(
               onTap: _launchUrlInstagram,
-              title: Text("Instagram"),
-              leading: FaIcon(
-                FontAwesomeIcons.instagram,
-                size: 40,
-                color: Colors.pink,
+              title: Text(
+                "Instagram",
+                style: CustomTextStyle.bodyText,
               ),
-              subtitle: Text("/excelhileleri"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded,
-                  color: Colors.pink, size: 15),
+              subtitle: Text(
+                "/excelhileleri",
+                style: CustomTextStyle.subtitleText,
+              ),
+              trailing: const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+              ),
             ),
           ),
-          const Card(
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: CustomColors.lightYellow,
+            ),
             child: ListTile(
               onTap: _launchUrlYoutube,
-              title: Text("YouTube"),
-              leading: FaIcon(
-                FontAwesomeIcons.youtube,
-                size: 40,
-                color: Colors.red,
+              title: Text(
+                "YouTube",
+                style: CustomTextStyle.bodyText,
               ),
-              subtitle: Text("/vlogbyatahan"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded,
-                  color: Colors.red, size: 15),
+              subtitle: Text(
+                "/vlogbyatahan",
+                style: CustomTextStyle.subtitleText,
+              ),
+              trailing: const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+              ),
             ),
           ),
-          const Card(
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: CustomColors.lightYellow,
+            ),
             child: ListTile(
               onTap: _launchUrlTwitter,
-              title: Text("Twitter"),
-              leading: FaIcon(
-                FontAwesomeIcons.twitter,
-                size: 40,
-                color: Colors.blue,
+              title: Text(
+                "Twitter",
+                style: CustomTextStyle.bodyText,
               ),
-              subtitle: Text("/excelhileleri"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded,
-                  size: 15, color: Colors.blue),
+              subtitle: Text(
+                "/excelhileleri",
+                style: CustomTextStyle.subtitleText,
+              ),
+              trailing: const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+              ),
             ),
           ),
-          const Card(
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: CustomColors.lightYellow,
+            ),
             child: ListTile(
               onTap: _launchUrlLinkedin,
-              title: Text("LinkedIn"),
-              leading: FaIcon(FontAwesomeIcons.linkedin,
-                  size: 40, color: Colors.blue),
-              subtitle: Text("/excelhileleri"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded,
-                  color: Colors.blue, size: 15),
+              title: Text(
+                "LinkedIn",
+                style: CustomTextStyle.bodyText,
+              ),
+              subtitle: Text(
+                "/excelhileleri",
+                style: CustomTextStyle.subtitleText,
+              ),
+              trailing: const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+              ),
             ),
           ),
-          const Card(
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: CustomColors.lightYellow,
+            ),
             child: ListTile(
               onTap: _launchUrlTiktok,
-              title: Text("Tik Tok"),
-              leading: FaIcon(
-                FontAwesomeIcons.tiktok,
-                size: 40,
-                color: Colors.black,
+              title: Text(
+                "Tik Tok",
+                style: CustomTextStyle.bodyText,
               ),
-              subtitle: Text("/excelhileleri"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded,
-                  color: Colors.black, size: 15),
+              subtitle: Text(
+                "/excelhileleri",
+                style: CustomTextStyle.subtitleText,
+              ),
+              trailing: const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+              ),
             ),
           ),
         ],

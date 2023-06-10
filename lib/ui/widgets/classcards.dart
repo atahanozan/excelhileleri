@@ -21,20 +21,22 @@ class _ClassCardState extends State<ClassCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Row(
         children: [
           Expanded(
+            flex: 1,
             child: Image.asset(widget.image),
           ),
           Expanded(
+            flex: 3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   widget.header,
-                  style: CustomTextStyle.mediumHeader,
+                  style: CustomTextStyle.largeHeader,
                 ),
                 Text(
                   widget.content,

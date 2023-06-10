@@ -1,4 +1,5 @@
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +11,8 @@ class EnterPage extends StatefulWidget {
 }
 
 class _EnterPageState extends State<EnterPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +63,7 @@ class _EnterPageState extends State<EnterPage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            fixedSize: Size.fromWidth(200),
+                            fixedSize: const Size.fromWidth(200),
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -70,10 +73,10 @@ class _EnterPageState extends State<EnterPage> {
                                 width: 30,
                                 child: Image.asset("assets/images/google.png"),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
-                              Text("Google ile devam et"),
+                              const Text("Google ile devam et"),
                             ],
                           ))
                     ],

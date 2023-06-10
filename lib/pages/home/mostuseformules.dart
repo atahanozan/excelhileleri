@@ -14,6 +14,7 @@ class MostUsedFormulas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: const CustomAppBar(title: 'Sık Kullanılan Formüller'),
       body: WebViewWidget(controller: _controller),
     );
