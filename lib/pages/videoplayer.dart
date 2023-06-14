@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/socialmedia.dart';

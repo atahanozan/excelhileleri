@@ -1,9 +1,11 @@
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel_hileleri_mobil/ui/helper/text_helper.dart';
 import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class YapayZekaPage extends StatefulWidget {
   const YapayZekaPage({super.key});
@@ -14,19 +16,34 @@ class YapayZekaPage extends StatefulWidget {
 
 class _YapayZekaPageState extends State<YapayZekaPage> {
   final TextEditingController _message = TextEditingController();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final storage = const FlutterSecureStorage();
   final List<String> messages = [];
   late OpenAI? openAI;
+  String key = "";
 
   @override
   void initState() {
-    openAI = OpenAI.instance.build(
-      token: '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',
-      baseOption: HttpSetup(
-        receiveTimeout: const Duration(seconds: 20),
-        connectTimeout: const Duration(seconds: 20),
-      ),
-      enableLog: true,
-    );
+    _firestore
+        .collection("SecretAPI")
+        .where("name", isEqualTo: "openai")
+        .get()
+        .then((QuerySnapshot snapshot) {
+      for (var element in snapshot.docs) {
+        setState(() {
+          key = element["key"];
+          openAI = OpenAI.instance.build(
+            token: key,
+            baseOption: HttpSetup(
+              receiveTimeout: const Duration(seconds: 20),
+              connectTimeout: const Duration(seconds: 20),
+            ),
+            enableLog: true,
+          );
+        });
+      }
+    });
+
     super.initState();
   }
 

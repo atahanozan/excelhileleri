@@ -1,5 +1,4 @@
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,8 +10,6 @@ class EnterPage extends StatefulWidget {
 }
 
 class _EnterPageState extends State<EnterPage> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

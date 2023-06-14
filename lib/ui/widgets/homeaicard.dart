@@ -18,6 +18,7 @@ class _HomeAiCardState extends State<HomeAiCard> {
         onTap: () => Navigator.pushNamed(context, "/ai"),
         child: Container(
           height: 180,
+          width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -26,11 +27,10 @@ class _HomeAiCardState extends State<HomeAiCard> {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              FittedBox(
-                  child: Image.asset(
+              Image.asset(
                 "assets/images/chatai.png",
                 fit: BoxFit.contain,
-              )),
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 140),
                 child: Container(

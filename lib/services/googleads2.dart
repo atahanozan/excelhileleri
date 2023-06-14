@@ -29,7 +29,6 @@ class _GoogleAdsDenemeSonState extends State<GoogleAdsDenemeSon> {
           },
           onAdFailedToLoad: (ad, error) {
             ad.dispose();
-            print('failed ${error.message}');
           },
         ));
     staticAd.load();
@@ -48,7 +47,6 @@ class _GoogleAdsDenemeSonState extends State<GoogleAdsDenemeSon> {
           },
           onAdFailedToLoad: (ad, error) {
             ad.dispose();
-            print('failed ${error.message}');
           },
         ));
     inlineAd.load();
@@ -72,10 +70,10 @@ class _GoogleAdsDenemeSonState extends State<GoogleAdsDenemeSon> {
     return Center(
       child: Column(
         children: [
-          Container(
-            child: AdWidget(ad: staticAd),
+          SizedBox(
             width: staticAd.size.width.toDouble(),
             height: staticAd.size.height.toDouble(),
+            child: AdWidget(ad: staticAd),
           ),
         ],
       ),

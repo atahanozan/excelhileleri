@@ -1,22 +1,26 @@
+import 'package:excel_hileleri_mobil/pages/exampage.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class BlogDetailPage extends StatefulWidget {
-  const BlogDetailPage({
+class TrainingDetailPage extends StatefulWidget {
+  const TrainingDetailPage({
     Key? key,
     required this.title,
     required this.url,
+    required this.level,
   }) : super(key: key);
 
   final String title;
   final String url;
+  final int level;
 
   @override
-  State<BlogDetailPage> createState() => _BlogDetailPageState();
+  State<TrainingDetailPage> createState() => _TrainingDetailPageState();
 }
 
-class _BlogDetailPageState extends State<BlogDetailPage> {
+class _TrainingDetailPageState extends State<TrainingDetailPage> {
   WebViewController _controller = WebViewController();
 
   @override
@@ -40,13 +44,18 @@ class _BlogDetailPageState extends State<BlogDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black,
-        title: Text(widget.title),
-        titleTextStyle: CustomTextStyle.largeHeader,
-        elevation: 0,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (_) => ExamPage(level: widget.level)));
+        },
+        label: Text(
+          "Bölüm Sonu Sınavı",
+          style: CustomTextStyle.bodyText,
+        ),
+        icon: const Icon(Icons.edit),
       ),
+      appBar: CustomAppBar(title: widget.title),
       body: WebViewWidget(
         controller: _controller,
       ),

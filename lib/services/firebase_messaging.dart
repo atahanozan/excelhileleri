@@ -47,7 +47,5 @@ class FirebaseMessagingHelper {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-
-    print("arka plan mesajı ${message.messageId}");
   }
 }

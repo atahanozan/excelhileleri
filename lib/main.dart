@@ -2,10 +2,8 @@ import 'package:excel_hileleri_mobil/auth/enterpage.dart';
 import 'package:excel_hileleri_mobil/auth/login.dart';
 import 'package:excel_hileleri_mobil/auth/register.dart';
 import 'package:excel_hileleri_mobil/firebase_options.dart';
-import 'package:excel_hileleri_mobil/pages/about_us.dart';
 import 'package:excel_hileleri_mobil/pages/allblogspage.dart';
 import 'package:excel_hileleri_mobil/pages/alltrainings.dart';
-import 'package:excel_hileleri_mobil/pages/home/chatwithteacher.dart';
 import 'package:excel_hileleri_mobil/pages/home/competition.dart';
 import 'package:excel_hileleri_mobil/pages/home/keyboardshortcuts.dart';
 import 'package:excel_hileleri_mobil/pages/home/mostuseformules.dart';
@@ -58,7 +56,6 @@ class MyApp extends StatelessWidget {
         "/competition": (context) => const CompetitionPage(),
         "/keyboard": (context) => KeyboardShorcutsPage(),
         "/formulas": (context) => MostUsedFormulas(),
-        "/aboutus": (context) => const AboutUssSection(),
         "/home": (context) => const HomePage(),
         "/main": (context) => const MainPage(),
         "/enter": (context) => const EnterPage(),

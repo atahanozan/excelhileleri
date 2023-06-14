@@ -2,7 +2,7 @@ import 'package:excel_hileleri_mobil/pages/home/chatwithteacher.dart';
 import 'package:excel_hileleri_mobil/pages/home/competition.dart';
 import 'package:excel_hileleri_mobil/pages/home/keyboardshortcuts.dart';
 import 'package:excel_hileleri_mobil/pages/home/mostuseformules.dart';
-import 'package:excel_hileleri_mobil/pages/mychatlist.dart';
+import 'package:excel_hileleri_mobil/pages/admin/mychatlist.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/homeaicard.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/socialmedia.dart';
 import 'package:excel_hileleri_mobil/ui/helper/text_helper.dart';

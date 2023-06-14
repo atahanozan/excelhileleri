@@ -1,3 +1,4 @@
+import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBarButton extends StatefulWidget {
@@ -8,6 +9,7 @@ class BottomNavBarButton extends StatefulWidget {
     required this.func,
     required this.icon,
     required this.visible,
+    required this.name,
   }) : super(key: key);
 
   final Color shadowColor;
@@ -15,6 +17,7 @@ class BottomNavBarButton extends StatefulWidget {
   final IconData icon;
   final Color color;
   final bool visible;
+  final String name;
 
   @override
   State<BottomNavBarButton> createState() => _BottomNavBarButtonState();
@@ -24,17 +27,7 @@ class _BottomNavBarButtonState extends State<BottomNavBarButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(50),
-        boxShadow: [
-          BoxShadow(
-            color: widget.shadowColor,
-            blurRadius: 25,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
+      color: Colors.transparent,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -47,16 +40,13 @@ class _BottomNavBarButtonState extends State<BottomNavBarButton> {
             ),
           ),
           Visibility(
-            visible: widget.visible,
-            child: Container(
-              height: 5,
-              width: 5,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
+              visible: widget.visible,
+              child: Text(
+                widget.name,
+                style: CustomTextStyle.subtitleText.copyWith(
+                  color: widget.color,
+                ),
+              )),
         ],
       ),
     );

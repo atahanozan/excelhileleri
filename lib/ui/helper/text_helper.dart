@@ -53,4 +53,13 @@ Burası bir eğitim takvimi ve sınav sürecini içermemektedir.
 
 Excel ile ilgili önemli noktalara değinen kısa kısa videoları içermektedir.
 """;
+
+  static String backGroundUrl =
+      "https://firebasestorage.googleapis.com/v0/b/ehmobile-d464c.appspot.com/o/AppImages%2Farkaplan.png?alt=media&token=bbfd5f67-ad9d-40fc-b922-75468db4907f&_gl=1*1hesf7e*_ga*MjAyNjE5MDI0NC4xNjc4ODYwNDk0*_ga_CW55HF8NVT*MTY4NjQ4MDgyMS4zNC4xLjE2ODY0ODQwNzEuMC4wLjA.";
+  static String instagramUrl =
+      "https://firebasestorage.googleapis.com/v0/b/ehmobile-d464c.appspot.com/o/AppImages%2Finstagram.png?alt=media&token=5b4afb08-7a41-4ad1-87ca-54eaa3c7b14f&_gl=1*waukiq*_ga*MjAyNjE5MDI0NC4xNjc4ODYwNDk0*_ga_CW55HF8NVT*MTY4NjQ4MDgyMS4zNC4xLjE2ODY0ODQxNjYuMC4wLjA.";
+  static String linkedinUrl =
+      "https://firebasestorage.googleapis.com/v0/b/ehmobile-d464c.appspot.com/o/AppImages%2Flinkedin.png?alt=media&token=c45c433e-c56f-4db9-b73e-b109c57616b6&_gl=1*49g1j4*_ga*MjAyNjE5MDI0NC4xNjc4ODYwNDk0*_ga_CW55HF8NVT*MTY4NjQ4MDgyMS4zNC4xLjE2ODY0ODQxODAuMC4wLjA.";
+  static String youtubeUrl =
+      "https://firebasestorage.googleapis.com/v0/b/ehmobile-d464c.appspot.com/o/AppImages%2Fyoutube.png?alt=media&token=09fc854c-75b3-4e19-bf3e-bc1203dd0f51&_gl=1*o6e57d*_ga*MjAyNjE5MDI0NC4xNjc4ODYwNDk0*_ga_CW55HF8NVT*MTY4NjQ4MDgyMS4zNC4xLjE2ODY0ODQxODkuMC4wLjA.";
 }

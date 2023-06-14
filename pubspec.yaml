@@ -47,6 +47,7 @@ dependencies:
   firebase_storage_web: ^3.6.2
   http: ^0.13.0
   youtube_player_flutter: ^8.1.2
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -67,37 +68,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/logo_seffaf.png
-    - assets/aboutusnew.png
-    - assets/contactusnew.png
-    - assets/comingsoon.png
-    - assets/ders1.png
-    - assets/ders2.png
-    - assets/ders3.png
-    - assets/logo.png
-    - assets/yellowoffice.png
-    - assets/robot.gif
-    - assets/robot2.gif
-    - assets/1ders.pdf
-    - assets/2_ders.pdf
-    - assets/3_ders.pdf
-    - assets/4_ders.pdf
-    - assets/5_ders.pdf
-    - assets/6_ders.pdf
-    - assets/7_ders.pdf
-    - assets/8_ders.pdf
-    - assets/9_ders.pdf
-    - assets/10_ders.pdf
-    - assets/11_ders.pdf
-    - assets/12_ders.pdf
-    - assets/13_ders.pdf
-    - assets/14_ders.pdf
-    - assets/15_ders.pdf
-    - assets/16_ders.pdf
-    - assets/17_ders.pdf
-    - assets/18_ders.pdf
-    - assets/19_ders.pdf
-    - assets/yellowclass.png
+    - assets/images/logo.png
     - assets/images/EH_Son_Logo.png
     - assets/images/chat.png
     - assets/images/competition.png

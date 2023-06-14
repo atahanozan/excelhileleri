@@ -44,7 +44,7 @@ class _ClassCardState extends State<ClassCard> {
                   overflow: TextOverflow.ellipsis,
                   style: CustomTextStyle.bodyText,
                 ),
-                Icon(Icons.arrow_right_alt_rounded),
+                const Icon(Icons.arrow_right_alt_rounded),
               ],
             ),
           ),
