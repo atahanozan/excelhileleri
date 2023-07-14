@@ -39,15 +39,16 @@ dependencies:
   firebase_auth: ^4.6.2
   firebase_storage: ^11.2.2
   cloud_firestore: ^4.8.0
-  webview_flutter: ^4.2.1
   firebase_messaging: ^14.6.2
   flutter_local_notifications: ^14.1.1
-  flutter_staggered_grid_view: ^0.6.2
   chat_gpt_sdk: ^2.1.7
   firebase_storage_web: ^3.6.2
   http: ^0.13.0
   youtube_player_flutter: ^8.1.2
-  flutter_secure_storage: ^8.0.0
+  google_sign_in: ^6.1.4
+  video_player: ^2.6.1
+  rxdart: ^0.27.7
+  internet_connection_checker: ^1.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,13 @@ flutter:
     - assets/images/coin.png
     - assets/images/google.png
     - assets/images/chatai.png
+    - assets/images/fab/askme.png
+    - assets/images/fab/1.gif
+    - assets/images/fab/2.gif
+    - assets/images/fab/3.gif
+    - assets/images/fab/4.gif
+    - assets/images/fab/5.gif
+    - assets/images/fab/6.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

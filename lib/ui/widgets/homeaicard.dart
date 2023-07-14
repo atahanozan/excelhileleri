@@ -51,6 +51,7 @@ class _HomeAiCardState extends State<HomeAiCard> {
                         "Yapay Zekaya Soru Sor",
                         style: CustomTextStyle.bodyText.copyWith(
                           fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(

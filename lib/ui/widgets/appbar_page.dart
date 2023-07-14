@@ -1,15 +1,19 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel_hileleri_mobil/pages/coins.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AppbarPage extends StatefulWidget implements PreferredSizeWidget {
-  const AppbarPage({Key? key})
-      : preferredSize = const Size.fromHeight(kToolbarHeight),
+  const AppbarPage({
+    Key? key,
+    required this.coin,
+    required this.name,
+  })  : preferredSize = const Size.fromHeight(kToolbarHeight),
         super(key: key);
+
+  final String name;
+  final int coin;
 
   @override
   final Size preferredSize;
@@ -19,39 +23,10 @@ class AppbarPage extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _AppbarPageState extends State<AppbarPage> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  String? uid, name;
-  User? user;
-  int coin = 0;
-  List<String> userName = [];
-
-  @override
-  void initState() {
-    setState(() {
-      user = _auth.currentUser;
-      uid = user?.uid;
-      name = user?.displayName;
-    });
-    _firestore
-        .collection("Users")
-        .doc(uid)
-        .get()
-        .then((DocumentSnapshot snapshot) {
-      setState(() {
-        coin = snapshot["coin"];
-      });
-    });
-    setState(() {
-      userName = name!.split(" ");
-    });
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text("Hoş Geldin ${userName[0]}"),
+      title: Text("Hoş Geldin ${widget.name.split(" ")[0]}"),
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.black,
@@ -72,7 +47,7 @@ class _AppbarPageState extends State<AppbarPage> {
           child: Container(
             alignment: Alignment.center,
             child: Text(
-              coin.toString(),
+              widget.coin.toString(),
               style: CustomTextStyle.mediumHeader,
             ),
           ),

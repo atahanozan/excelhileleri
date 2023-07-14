@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:excel_hileleri_mobil/pages/blogdetailpage.dart';
+import 'package:excel_hileleri_mobil/ui/helper/snackbarhelper.dart';
 import 'package:excel_hileleri_mobil/ui/helper/text_helper.dart';
 import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
@@ -154,13 +156,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       emailController.text.isEmpty &&
                       passwordController.text.isEmpty &&
                       passwordAgainController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(TextUtilities.errEksikBilgi)));
+                    SnackBarHelper()
+                        .showErrSnackBar(context, TextUtilities.errEksikBilgi);
                   } else {
                     if (passwordController.text !=
                         passwordAgainController.text) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(TextUtilities.errEslesmeyenSifre)));
+                      SnackBarHelper().showErrSnackBar(
+                          context, TextUtilities.errEslesmeyenSifre);
                     } else {
                       try {
                         final user = await _auth.createUserWithEmailAndPassword(
@@ -176,20 +178,27 @@ class _RegisterPageState extends State<RegisterPage> {
                           "email": emailController.text,
                           "coin": 0,
                           "statu": "basic",
+                          "birth": "Henüz eklenmedi",
+                          "gender": "Henüz eklenmedi",
+                          "phone": "Henüz eklenmedi",
+                          "traininglevel": "Temel Eğitim Seviyesi",
+                          "level": 0,
                         }).whenComplete(() async {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(TextUtilities.registered)));
+                          SnackBarHelper().showCongratsSnackBar(
+                              context, TextUtilities.registered);
+
                           Navigator.pushReplacementNamed(context, "/login");
                         });
                       } on FirebaseAuthException catch (err) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(err.code == "weak-password"
+                        SnackBarHelper().showErrSnackBar(
+                            context,
+                            err.code == "weak-password"
                                 ? TextUtilities.errWeekPassword
                                 : err.code == "invalid-email"
                                     ? TextUtilities.errInvalidEmail
                                     : err.code == "email-already-in-use"
                                         ? TextUtilities.errEmaliAlreadyUse
-                                        : "Bilgileri kontrol ederek tekrar deneyiniz.")));
+                                        : "Bilgileri kontrol ederek tekrar deneyiniz.");
                       }
                     }
                   }
@@ -223,9 +232,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "KVKK Kurallarını",
-                        style: CustomTextStyle.subtitleText,
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          "KVKK Kurallarını",
+                          style: CustomTextStyle.subtitleText
+                              .copyWith(color: Colors.blue),
+                        ),
                       ),
                       Text(
                         " kabul etmiş olursunuz.",

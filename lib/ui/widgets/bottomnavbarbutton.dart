@@ -40,7 +40,7 @@ class _BottomNavBarButtonState extends State<BottomNavBarButton> {
             ),
           ),
           Visibility(
-              visible: widget.visible,
+              visible: true,
               child: Text(
                 widget.name,
                 style: CustomTextStyle.subtitleText.copyWith(

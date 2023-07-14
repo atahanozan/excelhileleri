@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel_hileleri_mobil/ui/helper/text_helper.dart';
+import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -52,7 +53,7 @@ class _CoinsPageState extends State<CoinsPage> {
               SizedBox(
                 width: 200,
                 height: 200,
-                child: Image.asset("assets/logo.png"),
+                child: Image.asset("assets/images/logo.png"),
               ),
               const SizedBox(
                 height: 20,
@@ -90,7 +91,46 @@ class _CoinsPageState extends State<CoinsPage> {
                 TextUtilities.coinsExplain,
                 style: CustomTextStyle.subtitleText,
                 textAlign: TextAlign.center,
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: 300,
+                child: Column(
+                  children: [
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        fixedSize:
+                            Size.fromWidth(MediaQuery.of(context).size.width),
+                        foregroundColor: CustomColors.darkRed,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        side: const BorderSide(
+                          color: CustomColors.darkRed,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Reklam İzle",
+                        style: CustomTextStyle.bodyText,
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        fixedSize:
+                            Size.fromWidth(MediaQuery.of(context).size.width),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Yarışmaya Katıl",
+                        style: CustomTextStyle.bodyText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

@@ -55,64 +55,84 @@ class _BlogsPageState extends State<BlogsPage> {
                       "Yükleniyor...",
                       style: CustomTextStyle.bodyText,
                     )
-                  : ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.data?.docs.length,
-                      itemBuilder: (context, index) {
-                        DocumentSnapshot blogs = snapshot.data!.docs[index];
-                        String title = blogs['title'];
-                        String url = blogs['url'];
-                        String no = blogs['no'].toString();
+                  : ShaderMask(
+                      shaderCallback: (bounds) {
+                        return const LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          stops: [0.8, 1],
+                          colors: [
+                            Colors.white,
+                            Colors.transparent,
+                          ],
+                        ).createShader(bounds);
+                      },
+                      blendMode: BlendMode.dstIn,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: snapshot.data?.docs.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot blogs = snapshot.data!.docs[index];
+                          String title = blogs['title'];
+                          String content = blogs['content'];
+                          String no = blogs['no'].toString();
+                          String image = blogs["image"];
+                          String content1 = blogs["content1"];
+                          String teacher = blogs["teacher"];
 
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => BlogDetailPage(
-                                          title: title, url: url)));
-                            },
-                            child: Container(
-                              alignment: Alignment.topLeft,
-                              width: 100,
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: CustomColors.darkRed,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    no,
-                                    style: CustomTextStyle.subtitleText,
-                                  ),
-                                  const Divider(
-                                    height: 5,
-                                  ),
-                                  Expanded(
-                                    flex: 3,
-                                    child: SizedBox(
-                                      child: FittedBox(
-                                        child: Text(
-                                          title.replaceAll(" ", "\n"),
-                                          softWrap: true,
-                                          style: GoogleFonts.raleway(
-                                            fontSize: 20,
-                                            color: Colors.white,
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => BlogDetailPage(
+                                              title: title,
+                                              content: content,
+                                              image: image,
+                                              content1: content1,
+                                            )));
+                              },
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                width: 100,
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: CustomColors.darkRed,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: CustomColors.lightYellow,
+                                      child: Image.network(teacher),
+                                    ),
+                                    const Divider(
+                                      height: 5,
+                                    ),
+                                    Expanded(
+                                      child: SizedBox(
+                                        child: FittedBox(
+                                          child: Text(
+                                            title.replaceAll(" ", "\n"),
+                                            softWrap: true,
+                                            style: GoogleFonts.raleway(
+                                              fontSize: 20,
+                                              color: Colors.white,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     );
             },
           ),

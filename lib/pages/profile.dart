@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:excel_hileleri_mobil/pages/admin/adminpanel.dart';
 import 'package:excel_hileleri_mobil/pages/editprofile.dart';
+import 'package:excel_hileleri_mobil/ui/helper/userinfohelper.dart';
 import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/adsappbar.dart';
@@ -10,7 +12,6 @@ import 'package:google_fonts/google_fonts.dart';
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
     Key? key,
-    required this.user,
     required this.level,
     required this.totalDers,
     required this.points,
@@ -23,7 +24,6 @@ class ProfilePage extends StatefulWidget {
     required this.currenttraining,
   }) : super(key: key);
 
-  final User? user;
   final int level;
   final int totalDers;
   final List<dynamic> points;
@@ -40,6 +40,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   String successStatu = "";
   double averagePoint = 0;
   List<dynamic> points = [];
@@ -90,35 +91,60 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 Container(
                   alignment: Alignment.centerRight,
-                  child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => EditProfile(
-                                      gender: widget.gender == "Henüz eklenmedi"
-                                          ? "Seçeneksiz..."
-                                          : widget.gender,
-                                      name: widget.name,
-                                      phone: widget.phone == "Henüz eklenmedi"
-                                          ? "05XXX"
-                                          : widget.phone,
-                                      selectedDate:
-                                          widget.birth == "Henüz eklenmedi"
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      OutlinedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => EditProfile(
+                                          gender:
+                                              widget.gender == "Henüz eklenmedi"
+                                                  ? "Seçeneksiz..."
+                                                  : widget.gender,
+                                          name: widget.name,
+                                          phone:
+                                              widget.phone == "Henüz eklenmedi"
+                                                  ? "05XXX"
+                                                  : widget.phone,
+                                          selectedDate: widget.birth ==
+                                                  "Henüz eklenmedi"
                                               ? DateTime.now()
                                               : DateTime.parse(widget.birth),
-                                      user: widget.user,
-                                    )));
-                      },
-                      style: OutlinedButton.styleFrom(
-                          foregroundColor: CustomColors.darkRed,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                                          user: UserInfoData.user(),
+                                        )));
+                          },
+                          style: OutlinedButton.styleFrom(
+                              foregroundColor: CustomColors.darkRed,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              )),
+                          child: Text(
+                            "Düzenle",
+                            style: CustomTextStyle.bodyText,
                           )),
-                      child: Text(
-                        "Düzenle",
-                        style: CustomTextStyle.bodyText,
-                      )),
+                      Visibility(
+                        visible: widget.email == "atahanozantokdemir@gmail.com"
+                            ? true
+                            : false,
+                        child: TextButton(
+                            onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AdminPanel(),
+                                  ),
+                                ),
+                            child: Text(
+                              "Admin Panel",
+                              style: CustomTextStyle.smallHeader.copyWith(
+                                color: CustomColors.darkRed,
+                              ),
+                            )),
+                      )
+                    ],
+                  ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
@@ -404,7 +430,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        FirebaseAuth.instance.signOut();
+                        _auth.signOut();
+                        Navigator.pushReplacementNamed(context, '/login');
                       },
                       child: Text(
                         "Çıkış Yap",
@@ -423,7 +450,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     actions: [
                                       ElevatedButton(
                                           onPressed: () {
-                                            widget.user!.delete();
+                                            UserInfoData.user()!.delete();
                                             Navigator.pushReplacementNamed(
                                                 context, "/enter");
                                           },

@@ -1,13 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:excel_hileleri_mobil/ui/helper/text_helper.dart';
 import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ExamPage extends StatefulWidget {
-  const ExamPage({Key? key, required this.level}) : super(key: key);
+  const ExamPage({
+    Key? key,
+    required this.level,
+    required this.contexfinal,
+  }) : super(key: key);
 
   final int level;
+  final BuildContext contexfinal;
 
   @override
   State<ExamPage> createState() => _ExamPageState();
@@ -15,7 +22,13 @@ class ExamPage extends StatefulWidget {
 
 class _ExamPageState extends State<ExamPage> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   int totalPoint = 0;
+  User? user;
+  String? uid;
+  int level = 0;
+  int coin = 0;
+  List<dynamic> points = [];
   List<String> answers = ["", "", "", "", "", "", "", "", "", ""];
   List<String> correctAnswers = [
     "a",
@@ -29,6 +42,26 @@ class _ExamPageState extends State<ExamPage> {
     "a",
     "a"
   ];
+
+  @override
+  void initState() {
+    setState(() {
+      user = _auth.currentUser;
+      uid = user?.uid;
+      _firestore
+          .collection("Users")
+          .doc(uid)
+          .get()
+          .then((DocumentSnapshot snapshot) {
+        setState(() {
+          level = snapshot['level'];
+          points = snapshot['points'];
+          coin = snapshot['coin'];
+        });
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -320,6 +353,39 @@ class _ExamPageState extends State<ExamPage> {
                       setState(() {
                         totalPoint++;
                       });
+                    }
+                    if (totalPoint > 69) {
+                      setState(() {
+                        points.insert(level, totalPoint);
+                        coin += 5;
+                        _firestore.collection("Users").doc(uid).update({
+                          "points": points,
+                          "level": level + 1,
+                          "coin": coin,
+                        });
+                      });
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            TextUtilities.congratsDialog,
+                            style: CustomTextStyle.bodyText
+                                .copyWith(color: Colors.black),
+                          ),
+                          backgroundColor: CustomColors.lightGreen,
+                        ),
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            TextUtilities.warningDialog,
+                            style: CustomTextStyle.bodyText,
+                          ),
+                          backgroundColor: CustomColors.darkRed,
+                        ),
+                      );
                     }
                   },
                   child: const Text("Sınavı Bitir")),

@@ -1,51 +1,97 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:excel_hileleri_mobil/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'dart:convert';
+
+import 'package:excel_hileleri_mobil/main.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
+
+Future<void> handleBackgroundMessages(RemoteMessage message) async {
+  final notification = message.notification;
+  if (notification != null) return;
+  print(message.notification?.title);
+}
 
 class FirebaseMessagingHelper {
-  late final FirebaseMessaging messaging;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-  Future<void> notificationSetting() async {
-    await messaging.requestPermission(
-      alert: true,
-      sound: true,
-      badge: true,
+  final _androidChannel = const AndroidNotificationChannel(
+    "high_importance_channel",
+    "High Importance Channel",
+    description: "This channel is use for high importance notifications",
+    importance: Importance.defaultImportance,
+  );
+
+  final _localNotifications = FlutterLocalNotificationsPlugin();
+
+  void handleMessage(RemoteMessage? message) {
+    if (message == null) return;
+
+    navigatoKey.currentState?.pushNamed(
+      "/notification",
+      arguments: message,
     );
   }
 
-  Future<void> connectNotification(BuildContext context, String uid) async {
-    await Firebase.initializeApp();
+  Future initLocalNotifications() async {
+    const iOs = DarwinInitializationSettings();
+    const android = AndroidInitializationSettings("@drawable/ic_launcher");
+    const settings = InitializationSettings(android: android, iOS: iOs);
 
-    messaging = FirebaseMessaging.instance;
-    messaging.setForegroundNotificationPresentationOptions(
-      alert: true,
-      sound: true,
-      badge: true,
+    await _localNotifications.initialize(
+      settings,
+      onDidReceiveNotificationResponse: (payload) {
+        final message =
+            RemoteMessage.fromMap(jsonDecode(payload.payload.toString()));
+        handleMessage(message);
+      },
+      onDidReceiveBackgroundNotificationResponse: (payload) {
+        final message =
+            RemoteMessage.fromMap(jsonDecode(payload.payload.toString()));
+        handleMessage(message);
+      },
     );
-    notificationSetting();
-    FirebaseMessaging.onMessage.listen((RemoteMessage event) {
-      showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-                title: Text("${event.notification?.title}"),
-                content: Text("${event.notification?.body}"),
-              ));
-      _firestore.collection("Notifications").add({
-        "uid": uid,
-        "title": event.notification?.title,
-        "body": event.notification?.body,
-      });
+
+    final platform = _localNotifications.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
+
+    await platform?.createNotificationChannel(_androidChannel);
+  }
+
+  Future initPushNotification() async {
+    await FirebaseMessaging.instance
+        .setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    FirebaseMessaging.instance.getInitialMessage().then(handleMessage);
+    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
+    FirebaseMessaging.onBackgroundMessage(handleBackgroundMessages);
+    FirebaseMessaging.onMessage.listen((message) {
+      final notification = message.notification;
+      if (notification == null) return;
+
+      _localNotifications.show(
+        notification.hashCode,
+        notification.title,
+        notification.body,
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+            _androidChannel.id,
+            _androidChannel.name,
+            channelDescription: _androidChannel.description,
+            icon: "@drawable/ic_launcher",
+          ),
+        ),
+        payload: jsonEncode(message.toMap()),
+      );
     });
-
-    messaging.getToken().then((value) => debugPrint("Token: $value"));
   }
 
-  static Future<void> backgroundMessage(RemoteMessage message) async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+  Future<void> initNotifications() async {
+    await messaging.requestPermission();
+    final fcmtoken = await messaging.getToken();
+    initPushNotification();
+    initLocalNotifications();
   }
 }

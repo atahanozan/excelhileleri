@@ -1,20 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:excel_hileleri_mobil/pages/blogdetailpage.dart';
+import 'package:excel_hileleri_mobil/pages/trainings/trainingdetailpage.dart';
+import 'package:excel_hileleri_mobil/ui/helper/dialoghelper.dart';
 import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/adsappbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:excel_hileleri_mobil/ui/widgets/studentcard.dart';
 import 'package:flutter/material.dart';
 
 class MyTrainingsPage extends StatefulWidget {
   const MyTrainingsPage({
     Key? key,
-    required this.user,
     required this.level,
+    required this.points,
+    required this.traininglevel,
+    required this.trainingname,
   }) : super(key: key);
 
-  final User? user;
   final int level;
+  final List<dynamic> points;
+  final String trainingname;
+  final String traininglevel;
 
   @override
   State<MyTrainingsPage> createState() => _MyTrainingsPageState();
@@ -30,6 +35,10 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: StudentCard(),
+            ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
@@ -58,6 +67,8 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
                                 itemBuilder: (context, index) {
                                   DocumentSnapshot kalan =
                                       snapshot.data!.docs[index];
+                                  String title = kalan["name"];
+                                  String bookname = kalan.id;
 
                                   return Padding(
                                     padding: const EdgeInsets.symmetric(
@@ -69,14 +80,17 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
                                       ),
                                       child: ListTile(
                                         onTap: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (_) => BlogDetailPage(
-                                                      title: kalan["title"],
-                                                      url: kalan["url"],
-                                                    ))),
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                TrainingDetailPage(
+                                                    title: title,
+                                                    bookname: bookname,
+                                                    level: widget.level),
+                                          ),
+                                        ),
                                         title: Text(
-                                          kalan["title"],
+                                          kalan["name"],
                                           style: CustomTextStyle.bodyText,
                                         ),
                                         subtitle: Text(
@@ -123,6 +137,9 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
                                 itemBuilder: (context, index) {
                                   DocumentSnapshot kalan =
                                       snapshot.data!.docs[index];
+                                  String title = kalan["name"];
+                                  String bookname = kalan.id;
+                                  int no = kalan["no"];
 
                                   return Padding(
                                     padding: const EdgeInsets.symmetric(
@@ -133,15 +150,25 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
                                         color: CustomColors.lightYellow,
                                       ),
                                       child: ListTile(
-                                        onTap: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (_) => BlogDetailPage(
-                                                      title: kalan["title"],
-                                                      url: kalan["url"],
-                                                    ))),
+                                        onTap: () {
+                                          if (no > widget.level + 1) {
+                                            DialogHelper().errDialog(context,
+                                                "Öncelikle bir sonraki dersi tamamlamanız gerekmektedir.");
+                                          } else {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    TrainingDetailPage(
+                                                        title: title,
+                                                        bookname: bookname,
+                                                        level: widget.level),
+                                              ),
+                                            );
+                                          }
+                                        },
                                         title: Text(
-                                          kalan["title"],
+                                          kalan["name"],
                                           style: CustomTextStyle.bodyText,
                                         ),
                                         subtitle: Text(

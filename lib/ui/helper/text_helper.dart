@@ -1,16 +1,16 @@
 class TextUtilities {
   static String sikKullanilanFormuller =
-      "Excel uygulamasında en fazla kullanılan ve yeni başlayanlar da dahil olmak üzere, Excel konusunda kendini geliştirmek isteyen herkesin öncelikli olarak öğrenmesi gereken formüller.";
+      "Excel kullanımında en önemli konu elbette ki formüllerdir. Formüller hesaplamaları daha doğru yapmamızı ve işlem tekrarına engel olmamızı sağlar. Bütün formülleri ezberlemek mümkün olmayacağı için bu bölümde sizlere en sık kullanılan formülleri belirteceğim.";
   static String klavyeKisayollar =
-      "Kısa teslim süreli projelerde işinize yarayacak hem iş hem de okul hayatında zamandan tasarruf sağlayacak klavye kısa yolları.";
+      "Excel kullanımını hızlandırmanın en iyi yolu klavye kısayolarıdır. Bir işi yaparken mouse ile tek tek ilermektense kısayolları kullanarak işlem hızınızı neredeyse yarı yarıya düşürmüş olursunuz. Gelin birlkte Excel kısayollarına bakalım.";
   static String bilgiYarisma =
-      "Eğitimlerinizi pekiştirmek için bilgi oyunları oldukça önemlidir. Bu oyunlar ile öğrendiğinz herşeyi hem ezber hem de uygulama ile geliştirebilirsiniz.";
+      "Hem bilgilerinizi pekiştirmek hem de excel eğitimlerinde kullanabileceğiniz EH Coinleri buradan toplayabilmek için eğlenceli bilgi yarışmasına siz de katılın. Soruların zorluk seviyesine göre kazanacağınız EH Coin adedi artmaktadır. Sorular tek seferde yanıtlanır ve geri dönüşü yoktur. Hatalı yanıt verdiğinizde üzülmeyin bir sonraki soruda doğru yanıt verme ihtimalini artırmak için o konuda biraz daha araştırma yapın.";
   static String egitmeneSor =
       "Excel ile ilgili merak edilen herşeyi sorabilmek ve eğitimler hakkında detaylı bilgiler alabilmek için eğitmenlere mesaj atabilirsiniz.";
   static String yaziliDers =
-      "Kolay, anlaşılır ve tüm detayları öğrenebileceğiniz yazılı eğitim dökümanları burada yer almaktadır. Temel seviye Excel eğitiminin ilk üç bölümü tamamen ücretsiz sonrakiler ise EH coin ile alınabilmektedir.";
+      "Excel artık sizin için kabus olmaktan çıkacak. Temel, Orta ve İleri seviye Excel eğitimleri için hemen eğitim dökümanlarına gidin. Gerçek bir ders programı eşliğinde çalışmalara başlayın.";
   static String videoluDersler =
-      "Merak ettiğiniz konular ile ilgili videolu anlatımlar burada yer almaktadır. Yeni videolar için güncellemeleri takip edin.";
+      "Bu eğitimler bir eğitim sistemi şeklinde değil de daha çok Excel ile ilgili konulardan oluşan bir videolu anlatım içeriğidir. Burada formüllerin kullanımından, hücre biçimlendirmeye kadar her konu ayrı ayrı videolarla hazırlanmıştır.";
   static String errEksikBilgi =
       "Lütfen bütün bilgileri eksiksiz ve kurallara uygun doldurduğunuzdan emin olarak tekrar deneyiniz.";
   static String errEslesmeyenSifre =
@@ -29,29 +29,65 @@ class TextUtilities {
   static String comingSoon =
       "Çok yakında bu hizmete erişim sağlayabileceksiniz.";
   static String soruSor =
-      "Yapay zekaya hem Excel ile ilgili hem de Excel dışında istediğin her soruyu sorabilirsin.";
+      "Yapay zeka ile merak ettiğin tüm sorulara yanıt bulabilirsin.";
   static String chatExplain =
       "Burada eğitmen ile iletişime geçerek sormak istediğiniz tüm konulara yanıt alabilirsiniz. Eğitmenimizin dönüşü yoğunluğa bağlı olarak 3 ile 24 saat arasında değişmektedir. Talebinizi net anlamamız için öncelikle hazır sorulara yanıt vermenizi rica ederiz.";
   static String coinsExplain = """
-Coinler ders almada ya da eğitmen ile görüşerek ona proje yaptrımada işinize yaramaktadır.
+EH Coinler özellikle eğitim dökümanlarına erişimde kullanılmaktadır.
 
-Uygulamanın eğitim almak isteyen herkese hitap etmesi için ücret uygulanmamaktadır.
 
-Coinleri yarışmalara katılarak ve reklam izleyerek kazanabilirsiniz.
+Bunun dışında gelecek olan etkinliklerde veya aktivitelerde kullanabilirsiniz.
+
+
+Hatta eğitmene proje yaptırırken de EH Coinlerden faydalanabilirsiniz.
+
+
+EH Coinler herkesin erişebilmesi için ücretli yapılmamıştır.
+
+
+Bunun yerine reklam izleyerek ya da bilgi yarışmalarına katılarak kazanabilirsiniz.
 """;
   static String yaziliEgitimAciklama = """
-Yazılı eğitimlere bu başlık altından ulaşabilirsiniz.
+Eğitim dökümanları müfredata uygun ve ihtiyacınız olan tüm detayları içerecek şekilde hazırlanmıştır.
 
-Bu eğitimler ve eğitim sonunda yapılacak olan sınavlar ile eğitimlerden geçer not alabilir ve Coin biriktirebilirsiniz.
 
-Şu an için sadece Temel Seviye eğitimler verilmektedir. Orta ve ileri seviye eğitimler için Eğitmene Sor butonu aracılığı ile eğitmene sorabilirsiniz.
+Eğitimler sırasında not alabilir bu notlara Notlarım sayfasından ulaşabilirsiniz.
+
+
+Her konunun sonunda Bölüm Sonu Sınavı yapılmaktadır. Bu sınavdan 70 ve üzeri aldığınızda bölümü bitirip bir sonraki bölüme geçmeye hak kazanırsınız.
+
+
+Ancak 70 altında bir puan almanız durumunda konuyu tekrar edip sınava yeniden girmeniz gerekmektedir.
+
+
+Bir bölüm geçilmeden diğer bölüme başlayamazsınız.
 """;
   static String videoluEgitimAciklama = """
 Bu buton aracılığı ile daha önce Youtube üzerinden yayınlanmış videolu eğitimlere ulaşabilirsiniz.
 
+
 Burası bir eğitim takvimi ve sınav sürecini içermemektedir.
 
+
 Excel ile ilgili önemli noktalara değinen kısa kısa videoları içermektedir.
+""";
+
+  static String forgotPassword =
+      "Şifre sıfırlama linkinin gönderilmesi için lütfen e-mail bilginizi giriniz.";
+  static String congratsDialog = """
+Tebrikler!
+
+
+Başarılı bir sınav geçirdiniz. Bir sonraki bölüme başlayabilirsiniz.
+""";
+  static String warningDialog = """
+Üzgünüz!
+
+
+Bir üst seviyeye geçmek için yeterli puanı yakalayamadınız.
+
+
+Biraz daha sıkı çalışma ile bunu başarabilirsiniz.
 """;
 
   static String backGroundUrl =

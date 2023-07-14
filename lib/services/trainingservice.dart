@@ -5,33 +5,47 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class TrainingService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Stream<QuerySnapshot> getTrainingData() {
-    var ref = _firestore.collection("BookTrainings").orderBy("no").snapshots();
-
-    return ref;
-  }
-
-  Stream<QuerySnapshot> getTraininDataWithLevel(String level) {
+  Stream<QuerySnapshot> getTrainingData(int no) {
     var ref = _firestore
         .collection("BookTrainings")
-        .where("no", isEqualTo: level)
+        .where("no", isEqualTo: no)
+        .orderBy("no")
         .snapshots();
 
     return ref;
   }
 
-  Future<StreamSubscription<QuerySnapshot<Map<String, dynamic>>>>
-      getTrainingInformations(Map<String, dynamic> info, String level) async {
-    var ref = _firestore
-        .collection("BookTrainings")
-        .where("no", isEqualTo: level)
-        .snapshots()
-        .listen((data) {
-      for (var docs in data.docs) {
-        info.addAll({"title": docs["title"]});
-      }
-    });
+  Stream<QuerySnapshot> getBookList() {
+    var ref = _firestore.collection("BookTrainings").snapshots();
 
     return ref;
+  }
+
+  Future<int> bookLenght() async {
+    QuerySnapshot books =
+        await FirebaseFirestore.instance.collection("BookTrainings").get();
+
+    int lenght = books.docs.length;
+
+    return lenght;
+  }
+
+  Future<Map<String, dynamic>> bookInfo(int unit) async {
+    DocumentSnapshot books = await FirebaseFirestore.instance
+        .collection("BookTrainings")
+        .doc("booktraining_book$unit")
+        .get();
+
+    String name = books["name"];
+    String desc = books["desc"];
+    int no = books["no"];
+
+    Map<String, dynamic> bookinfo = {
+      "name": name,
+      "desc": desc,
+      "no": no,
+    };
+
+    return bookinfo;
   }
 }

@@ -121,7 +121,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text("Giriş Yap"),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/forgotpassword");
+                },
                 child: const Text("Şifremi Unuttum"),
               )
             ],

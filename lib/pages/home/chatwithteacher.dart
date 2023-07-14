@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:excel_hileleri_mobil/ui/helper/dialoghelper.dart';
 import 'package:excel_hileleri_mobil/ui/helper/text_helper.dart';
 import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
-import 'package:excel_hileleri_mobil/ui/widgets/customalertdialog.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
 
@@ -54,10 +54,8 @@ class _ChatWithTeacherPageState extends State<ChatWithTeacherPage> {
       });
       _message.clear();
     } else {
-      showDialog(
-          context: context,
-          builder: (_) => const CustomAlerDialog(
-              content: Text("Lütfen birşeyler yazınız.")));
+      DialogHelper().errDialog(
+          context, "Lütfen bir kaç kelime ile isteklerinizi belirtiniz.");
     }
   }
 
@@ -119,40 +117,56 @@ class _ChatWithTeacherPageState extends State<ChatWithTeacherPage> {
                                       left: 100,
                                       right: 5,
                                     ),
-                                    child: Stack(
-                                      alignment: Alignment.topRight,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 15),
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            padding: const EdgeInsets.all(15),
+                                    child: InkWell(
+                                      onTap: () {
+                                        DialogHelper().choicesDialog(
+                                            context,
+                                            "Mesajı silmek istediğinize emin misiniz?",
+                                            "Sil", () {
+                                          FirebaseFirestore.instance
+                                              .collection("Chat")
+                                              .doc(chatMessages.id)
+                                              .delete();
+                                          Navigator.pop(context);
+                                        });
+                                      },
+                                      child: Stack(
+                                        alignment: Alignment.topRight,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 15),
+                                            child: Container(
+                                              alignment: Alignment.centerRight,
+                                              padding: const EdgeInsets.all(15),
+                                              decoration: BoxDecoration(
+                                                color: CustomColors.lightBlue,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: Text(
+                                                chatMessages["message"],
+                                                style: CustomTextStyle.bodyText,
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.all(5),
                                             decoration: BoxDecoration(
-                                              color: CustomColors.lightBlue,
+                                              color: CustomColors.darkRed,
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                             ),
                                             child: Text(
-                                              chatMessages["message"],
-                                              style: CustomTextStyle.bodyText,
+                                              "Ben",
+                                              style: CustomTextStyle
+                                                  .subtitleText
+                                                  .copyWith(
+                                                      color: Colors.white),
                                             ),
                                           ),
-                                        ),
-                                        Container(
-                                          padding: const EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
-                                            color: CustomColors.darkRed,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          child: Text(
-                                            "Ben",
-                                            style: CustomTextStyle.subtitleText
-                                                .copyWith(color: Colors.white),
-                                          ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   )
                                 : Padding(
@@ -202,37 +216,59 @@ class _ChatWithTeacherPageState extends State<ChatWithTeacherPage> {
                 },
               ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: TextField(
-                    style: CustomTextStyle.bodyText,
-                    controller: _message,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: "Mesajınızı yazınız...",
-                      labelStyle: CustomTextStyle.bodyText,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Divider(),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: TextField(
+                            style: CustomTextStyle.bodyText,
+                            controller: _message,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              labelText: "Mesajınızı yazınız...",
+                              labelStyle: CustomTextStyle.bodyText,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: InkWell(
+                            onTap: () {
+                              _sendMessage();
+                            },
+                            child: FittedBox(
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                alignment: Alignment.center,
+                                decoration: const BoxDecoration(
+                                  color: CustomColors.darkRed,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.send,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 8,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: CustomColors.darkRed,
-                      foregroundColor: Colors.white,
-                    ),
-                    onPressed: () {
-                      _sendMessage();
-                    },
-                    child: const Icon(Icons.send),
-                  ),
-                )
-              ],
+                ],
+              ),
             ),
           ],
         ),

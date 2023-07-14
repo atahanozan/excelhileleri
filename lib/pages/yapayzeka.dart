@@ -5,7 +5,6 @@ import 'package:excel_hileleri_mobil/ui/styles/color_style.dart';
 import 'package:excel_hileleri_mobil/ui/styles/text_style.dart';
 import 'package:excel_hileleri_mobil/ui/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class YapayZekaPage extends StatefulWidget {
   const YapayZekaPage({super.key});
@@ -17,7 +16,6 @@ class YapayZekaPage extends StatefulWidget {
 class _YapayZekaPageState extends State<YapayZekaPage> {
   final TextEditingController _message = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final storage = const FlutterSecureStorage();
   final List<String> messages = [];
   late OpenAI? openAI;
   String key = "";
@@ -62,12 +60,12 @@ class _YapayZekaPageState extends State<YapayZekaPage> {
     });
 
     final request = ChatCompleteText(
-      model: ChatModel.gptTurbo0301,
+      model: GptTurbo0631Model(),
       messages: [
-        {
-          'role': 'user',
-          'content': _message.text,
-        }
+        Messages(
+          role: Role.user,
+          content: _message.text,
+        )
       ],
       maxToken: 200,
     );
@@ -116,42 +114,60 @@ class _YapayZekaPageState extends State<YapayZekaPage> {
                 );
               },
             )),
-            Row(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: TextField(
-                    controller: _message,
-                    style: CustomTextStyle.bodyText,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelStyle: CustomTextStyle.bodyText,
-                      labelText: "Soru Sor...",
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Divider(),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: TextField(
+                            style: CustomTextStyle.bodyText,
+                            controller: _message,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              labelText: "Mesajınızı yazınız...",
+                              labelStyle: CustomTextStyle.bodyText,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: InkWell(
+                            onTap: () {
+                              _sendMessage();
+                            },
+                            child: FittedBox(
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                alignment: Alignment.center,
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  Icons.send,
+                                  color: Colors.greenAccent.shade700,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    onPressed: () {
-                      _sendMessage();
-                    },
-                    child: Icon(
-                      Icons.send_rounded,
-                      color: Colors.greenAccent.shade700,
-                    ),
-                  ),
-                ),
-              ],
-            )
+                ],
+              ),
+            ),
           ],
         ),
       ),

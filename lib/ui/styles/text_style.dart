@@ -19,6 +19,10 @@ class CustomTextStyle {
   static TextStyle bodyText = GoogleFonts.raleway(
     fontSize: 16,
   );
+  static TextStyle bodySmallText = GoogleFonts.raleway(
+    fontSize: 14,
+  );
+
   static TextStyle subtitleText = GoogleFonts.raleway(
     fontSize: 12,
   );

@@ -42,7 +42,7 @@ class _ClassCardState extends State<ClassCard> {
                   widget.content,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: CustomTextStyle.bodyText,
+                  style: CustomTextStyle.bodySmallText,
                 ),
                 const Icon(Icons.arrow_right_alt_rounded),
               ],
